@@ -1,139 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Erene Castro Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Erene Castro - Portfolio</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #121212;
-      color: #fff;
-      line-height: 1.6;
+    :root{
+      --grad1:#0a0a0a;   /* near black */
+      --grad2:#1e3c72;   /* deep navy */
+      --accent:#ff6a00;  /* strong orange */
+      --card: rgba(255,255,255,.9);
     }
-
-    header {
-      background: linear-gradient(90deg, #ff6a00, #ee0979);
-      padding: 20px;
-      text-align: center;
-      color: white;
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(135deg, var(--grad1), var(--grad2));
+      color:#eaeaea; /* lighter text on dark bg */
+      text-align:center;
+      line-height:1.6;
     }
-
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
+    header{
+      padding:32px 20px;
+      background: rgba(255,255,255,.08);
+      border-bottom:3px solid #ff6a00; /* orange underline */
     }
-
-    header p {
-      margin: 5px 0 0;
-      font-size: 1.2rem;
+    header img{
+      width:140px;height:140px;border-radius:50%;
+      border:4px solid #ff6a00;object-fit:cover;
+      box-shadow:0 4px 12px rgba(0,0,0,.6)
     }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      background: #222;
-      padding: 10px;
+    h1{margin:10px 0 4px;font-size:2.2rem;color:#ff6a00;} /* strong orange */
+    .subtitle{margin:0;color:#ccc}
+    section{padding:34px 18px}
+    .card{
+      background:var(--card);
+      max-width:900px;margin:0 auto 22px;
+      padding:22px;border-radius:18px;
+      box-shadow:0 6px 14px rgba(0,0,0,.35);
+      text-align:left;
+      color:#222; /* dark text inside cards */
     }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-      transition: color 0.3s ease;
+    .card h2{
+      margin:4px 0 14px;
+      color:var(--accent);   /* orange titles */
+      text-align:center;
     }
-
-    nav a:hover {
-      color: #ff6a00;
+    .list{
+      list-style:none;margin:0;padding:0;
     }
-
-    section {
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: auto;
+    .list li{
+      padding:10px 14px;margin:6px 0;
+      background:#1e3c72;color:#fff;border-radius:10px;
     }
-
-    section h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #ff6a00;
+    .badges{
+      display:flex;flex-wrap:wrap;gap:10px;justify-content:center;
     }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
+    .badge{
+      background:#fff;border:2px solid var(--accent);color:#1e3c72;
+      padding:8px 12px;border-radius:999px;font-weight:600;
     }
-
-    .gallery img {
-      width: 100%;
-      height: auto;
-      max-height: 400px;
-      object-fit: contain; /* show full picture */
-      border-radius: 14px;
-      border: 4px solid #ff6a00;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, .5);
-      background: #000; /* black frame if space */
+    .edu{
+      display:grid;gap:10px;
     }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #222;
-      margin-top: 40px;
-      color: #aaa;
+    .edu-item{
+      display:flex;gap:12px;align-items:flex-start;
+      background:#fff;border-left:6px solid var(--accent);
+      border-radius:12px;padding:12px 14px;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,.08);
+    }
+    .edu-years{min-width:140px;font-weight:700;color:#1e3c72}
+    .gallery{
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:14px;margin-top:10px;
+    }
+    .gallery img{
+      width:100%;
+      height:auto;              /* keep proportions */
+      max-height:400px;         /* optional: limit tall images */
+      object-fit:contain;       /* show full picture */
+      border-radius:14px;
+      border:4px solid #ff6a00;
+      box-shadow:0 4px 12px rgba(0,0,0,.5);
+      background:#000;          /* fills empty space with black */
+    }
+    .contact a{color:var(--accent);text-decoration:none;font-weight:700}
+    .contact a:hover{text-decoration:underline}
+    footer{
+      background:#000;color:#aaa;padding:16px;margin-top:24px;
+      font-size:.92rem;
+    }
+    @media (max-width:520px){
+      header img{width:120px;height:120px}
+      .edu-years{min-width:110px}
+      .gallery img{max-height:260px}
     }
   </style>
 </head>
 <body>
-  <header>
-    <img src="e8bd3f19-a035-4967-91b3-ea84627df8a9.jpg" alt="Erene Castro portrait">
-    <h1>Erene Castro</h1>
-    <p>Welcome to My Portfolio</p>
-  </header>
 
-  <nav>
-    <a href="#about">About Me</a>
-    <a href="#education">Education</a>
-    <a href="#skills">Skills</a>
-    <a href="#hobbies">Hobbies & Passion</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<header>
+  <img src="e8bd3f19-a035-4967-91b3-ea84627df8a9.jpg" alt="Erene Castro portrait">
+  <h1>Erene Castro</h1>
+  <p class="subtitle">Welcome to my personal portfolio!</p>
+</header>
 
-  <section id="about">
+<section id="about">
+  <div class="card">
     <h2>About Me</h2>
-    <p>Hello! I’m Erene Castro, passionate about technology, sports, and creativity. This is my personal portfolio where I share my journey, education, and hobbies.</p>
-  </section>
+    <p style="text-align:center;max-width:760px;margin:0 auto;">
+      Hi! I’m Erene Castro IT student have passion to enjoys learning new skills determination to finish the task have a good communication, always positive and believe. 
+    </p>
+  </div>
+</section>
 
-  <section id="education">
+<section id="education">
+  <div class="card">
     <h2>Education</h2>
-    <p>Currently pursuing my studies in Information Technology and continuously learning new skills to improve my knowledge in web development and design.</p>
-  </section>
-
-  <section id="skills">
-    <h2>Skills</h2>
-    <p>Web Design, HTML, CSS, Creativity, Team Collaboration, and Passion for Sports.</p>
-  </section>
-
-  <section id="hobbies">
-    <h2>Hobbies & Passion</h2>
-    <div class="gallery">
-      <img src="capturebb2.jpg" alt="Basketball portrait">
-      <img src="capturebb3.jpg" alt="Basketball team group photo">
+    <div class="edu">
+      <div class="edu-item">
+        <div class="edu-years">2010–2016</div>
+        <div class="edu-detail"><strong>E.T.C.S-2</strong></div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-years">2016–2022</div>
+        <div class="edu-detail"><strong>NOHS</strong> — HS/SHS</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-years">2022–2026</div>
+        <div class="edu-detail"><strong>STI West Negros University</strong> — Bachelor of Science in Information Technology</div>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="contact">
+<section id="skills">
+  <div class="card">
+    <h2>Skills</h2>
+    <div class="badges">
+      <span class="badge">Teamwork</span>
+      <span class="badge">Patience</span>
+      <span class="badge">Time Management</span>
+      <span class="badge">Communication</span>
+    </div>
+  </div>
+</section>
+
+<section id="hobbies">
+  <div class="card">
+    <h2>Hobbies &amp; Passion</h2>
+    <p style="text-align:center;">Playing basketball.</p>
+    <div class="gallery">
+      <img src="Capturebb2.jpg" alt="Basketball portrait">
+      <img src="Capturebb3.jpg" alt="Basketball team group photo">
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="card contact" style="text-align:center;">
     <h2>Contact</h2>
-    <p>Email: erenecastro@example.com</p>
-    <p>Phone: +63 912 345 6789</p>
-  </section>
+    <p>Email: <a href="mailto:erenekarl2020@gmail.com">erenekarl2020@gmail.com</a></p>
+    <p>Website: <a href="https://EreneCastro.github.io" target="_blank" rel="noopener">EreneCastro.github.io</a></p>
+  </div>
+</section>
 
-  <footer>
-    <p>&copy; 2025 Erene Castro. All Rights Reserved.</p>
-  </footer>
+<footer>
+  &copy; 2025 Erene Castro — All Rights Reserved
+</footer>
+
 </body>
 </html>
